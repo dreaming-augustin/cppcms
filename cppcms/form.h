@@ -971,6 +971,14 @@ namespace cppcms {
 				non_empty_=true;
 			}
 
+			///
+			/// Inform the validator that this widget can be empty.
+			/// If required, call this method explicitely after setting either low() or high() as they call non_empty().
+			///
+			void empty()
+			{
+				non_empty_=false;
+			}
 
 			///
 			/// Get numeric value that was loaded from the POST or
@@ -999,6 +1007,7 @@ namespace cppcms {
 
 			/// 
 			/// Set the minimum valid value.
+			/// It will set non_empty() to true.
 			///
 			void low(T a)
 			{
@@ -1009,6 +1018,7 @@ namespace cppcms {
 
 			/// 
 			/// Set the maximum valid value.
+			/// It will set non_empty() to true.
 			///
 			void high(T b)
 			{
@@ -1019,6 +1029,7 @@ namespace cppcms {
 
 			///
 			/// Same as low(a); high(b);
+			/// It will set non_empty() to true.
 			///			
 			void range(T a,T b)
 			{
